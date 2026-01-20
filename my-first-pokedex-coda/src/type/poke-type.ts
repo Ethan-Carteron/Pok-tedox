@@ -64,3 +64,15 @@ export interface Pokemon {
     moves: PokemonMove[];
     cries: PokemonCries;
 }
+
+async function Pokemon () {
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0");
+  const data = await response.json();
+  console.log(data)
+}
+
+async function getPokemonInfos () : Promise<PokemonInfos> {
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon/35");
+  // const data = await response.json();
+  return await response.json();
+}
